@@ -1,4 +1,3 @@
-
 window.onload = () => {
   // add `transitionend` listeners for updating classes and starting next move
   var layerDivs = document.querySelectorAll(".cube-layer");
@@ -7,5 +6,5 @@ window.onload = () => {
     layerDivs[i].addEventListener("transitionend", nextMove, true);
   }
   // nextMove();
-  drag()
+  drag();
 };

@@ -1,11 +1,10 @@
-
-let initRotateX = 335
-let initRotateY = 25
-let initRotateZ = 0
+let initRotateX = 335;
+let initRotateY = 25;
+let initRotateZ = 0;
 
 function drag() {
   var drag = document.getElementById("drag");
-  drag.style.transform = `rotateY(${initRotateY}deg) rotateX(${initRotateX}deg) rotateZ(${initRotateZ}deg)`
+  drag.style.transform = `rotateY(${initRotateY}deg) rotateX(${initRotateX}deg) rotateZ(${initRotateZ}deg)`;
   // //点击某物体时，用drag对象即可，move和up是全局区域，
   // 也就是整个文档通用，应该使用document对象而不是drag对象(否则，采用drag对象时物体只能往右方或下方移动)
   drag.onmousedown = function (event) {
@@ -30,9 +29,12 @@ function drag() {
       } else if (moveY > window.innerHeight - drag.offsetHeight) {
         moveY = window.innerHeight - drag.offsetHeight;
       }
-      initRotateX = initRotateX - moveX/10
-      initRotateY = initRotateY- moveY/10
-      drag.style.transform = `rotateY(${initRotateY}deg) rotateX(${initRotateX}deg) rotateZ(${initRotateZ}deg)`
+      console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+      console.log(getComputedStyle(drag)["transform"]);
+      console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+      initRotateX = initRotateX - moveX / 10;
+      initRotateY = initRotateY - moveY / 10;
+      drag.style.transform = `rotateY(${1}deg) rotateX(${1}deg) rotateZ(${initRotateX}deg)`;
     };
     document.onmouseup = function (event) {
       this.onmousemove = null;
@@ -43,4 +45,4 @@ function drag() {
       }
     };
   };
-};
+}
