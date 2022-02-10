@@ -90,18 +90,11 @@ function updateCubie() {
   }
 }
 
-/**	Generates and executes random move */
-var nextMove = (function () {
-  var prevSide = "";
-  var sides = ["u", "f", "r", "l", "b", "d"];
-  return function () {
-    if (document.querySelector(".cube-layer.turn")) return;
-    var side = prevSide;
-    while (side == prevSide) side = sides[(Math.random() * 6) | 0];
-    var step = 1 + ((Math.random() * 3) | 0);
-    setTimeout(function () {
-      move(side + step);
-    }, 10);
-    prevSide = side;
-  };
-})();
+function bindMove() {
+  // add `transitionend` listeners for updating classes and starting next move
+  var layerDivs = document.querySelectorAll(".cube-layer");
+  for (var i = 0; i < layerDivs.length; ++i) {
+    layerDivs[i].addEventListener("transitionend", updateCubie, true);
+  }
+  // move("d2");
+}
