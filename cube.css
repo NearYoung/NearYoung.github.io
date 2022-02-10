@@ -16,7 +16,8 @@ body {
 	position: relative;
 	transform-style: preserve-3d;
 	transform-origin: 50px 50px;
-	transform: rotateY(25deg) rotateX(335deg) rotateZ(0deg);
+  user-select:none;
+  cursor:move;
 }
 .cube-layer {
 	transform-style: preserve-3d;
